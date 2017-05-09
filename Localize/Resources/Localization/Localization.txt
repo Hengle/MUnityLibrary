@@ -1,0 +1,5 @@
+word,ja,en
+# テスト
+ONE,一,one
+TWO,二,two
+HOT,熱い,hot
