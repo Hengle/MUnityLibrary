@@ -12,6 +12,17 @@ namespace Masa
         /// </summary>
         private static T _instance;
 
+        private void Awake()
+        {
+            if (_instance != null)
+            {
+                DestroyImmediate(this.gameObject);
+                return;
+            }
+            _instance = GetComponent<T>();
+            DontDestroyOnLoad(gameObject);
+        }
+
         public static T Instance
         {
             get
