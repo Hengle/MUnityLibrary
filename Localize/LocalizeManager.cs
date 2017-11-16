@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Masa
+namespace MUnityLibrary.Common
 {
     /// <summary>
     /// ローカライズ管理
