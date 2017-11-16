@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using MUnityLibrary.Common;
+using MUnityLibrary.Utility;
 
-namespace Masa.Sound
+namespace MUnityLibrary.Sound
 {
     [RequireComponent(typeof(AudioListener))]
     /// <summary>

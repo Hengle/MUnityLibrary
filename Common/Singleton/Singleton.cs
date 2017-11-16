@@ -1,4 +1,4 @@
-﻿namespace Masa
+﻿namespace MUnityLibrary.Common
 {
     /// <summary>
     /// Singleton クラス

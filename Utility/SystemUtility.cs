@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Masa
+namespace MUnityLibrary.Utility
 {
     /// <summary>
     /// System の Utility クラス

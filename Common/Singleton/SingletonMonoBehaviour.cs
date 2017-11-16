@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Masa
+namespace MUnityLibrary.Common
 {
     /// <summary>
     /// MonoBehaviour の Singleton クラス
@@ -16,11 +16,20 @@ namespace Masa
         {
             if (_instance != null)
             {
-                DestroyImmediate(this.gameObject);
+                // なんか Unity がおかしい気がするが、とりあえず対処
+                // DestroyImmediate (this.gameObject);
                 return;
             }
             _instance = GetComponent<T>();
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
+        }
+
+        public void SetDontDestroyOnLoad(bool isActive)
+        {
+            if (isActive)
+            {
+                DontDestroyOnLoad(gameObject);
+            };
         }
 
         public static T Instance
@@ -30,11 +39,6 @@ namespace Masa
                 if (_instance == null)
                 {
                     _instance = (T)FindObjectOfType(typeof(T));
-
-                    if (_instance == null)
-                    {
-                        Debug.LogError(typeof(T) + "is nothing");
-                    }
                 }
 
                 return _instance;

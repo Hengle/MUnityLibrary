@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Masa.Sound;
+using MUnityLibrary.Sound;
 
 public class SoundManagerTest : MonoBehaviour
 {
