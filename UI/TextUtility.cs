@@ -12,7 +12,7 @@ namespace MUnityLibrary.UI
         /// <returns></returns>
         public static string PaintedColor(this string text, Color color)
         {
-            return string.Format("<color=#{0}>{1}</color>", ColorUtility.ToHtmlStringRGBA(color), text);
+            return $"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>{text}</color>";
         }
     }
 }
