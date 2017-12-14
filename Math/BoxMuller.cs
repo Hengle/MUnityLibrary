@@ -8,16 +8,16 @@ namespace MUnityLibrary.Math
     /// </summary>
     public class BoxMuller
     {
-        private Random random;
+        private readonly Random _random;
 
         public BoxMuller()
         {
-            random = new Random(Environment.TickCount);
+            _random = new Random(Environment.TickCount);
         }
 
         public BoxMuller(int seed)
         {
-            random = new Random(seed);
+            _random = new Random(seed);
         }
 
         public double Next(double mu = 0.0, double sigma = 1.0, bool getCos = true)
@@ -25,18 +25,20 @@ namespace MUnityLibrary.Math
             if (getCos)
             {
                 double rand = 0.0;
-                while ((rand = random.NextDouble()) == 0.0) ;
-                double rand2 = random.NextDouble();
-                double normrand = System.Math.Sqrt(-2.0 * System.Math.Log(rand)) * System.Math.Cos(2.0 * System.Math.PI * rand2);
+                while ((rand = _random.NextDouble()) == 0.0) ;
+                double rand2 = _random.NextDouble();
+                double normrand = System.Math.Sqrt(-2.0 * System.Math.Log(rand)) *
+                                  System.Math.Cos(2.0 * System.Math.PI * rand2);
                 normrand = normrand * sigma + mu;
                 return normrand;
             }
             else
             {
                 double rand;
-                while ((rand = random.NextDouble()) == 0.0) ;
-                double rand2 = random.NextDouble();
-                double normrand = System.Math.Sqrt(-2.0 * System.Math.Log(rand)) * System.Math.Sin(2.0 * System.Math.PI * rand2);
+                while ((rand = _random.NextDouble()) == 0.0) ;
+                double rand2 = _random.NextDouble();
+                double normrand = System.Math.Sqrt(-2.0 * System.Math.Log(rand)) *
+                                  System.Math.Sin(2.0 * System.Math.PI * rand2);
                 normrand = normrand * sigma + mu;
                 return normrand;
             }
@@ -46,11 +48,13 @@ namespace MUnityLibrary.Math
         {
             double[] normrand = new double[2];
             double rand = 0.0;
-            while ((rand = random.NextDouble()) == 0.0) ;
-            double rand2 = random.NextDouble();
-            normrand[0] = System.Math.Sqrt(-2.0 * System.Math.Log(rand)) * System.Math.Cos(2.0 * System.Math.PI * rand2);
+            while ((rand = _random.NextDouble()) == 0.0) ;
+            double rand2 = _random.NextDouble();
+            normrand[0] = System.Math.Sqrt(-2.0 * System.Math.Log(rand)) *
+                          System.Math.Cos(2.0 * System.Math.PI * rand2);
             normrand[0] = normrand[0] * sigma + mu;
-            normrand[1] = System.Math.Sqrt(-2.0 * System.Math.Log(rand)) * System.Math.Sin(2.0 * System.Math.PI * rand2);
+            normrand[1] = System.Math.Sqrt(-2.0 * System.Math.Log(rand)) *
+                          System.Math.Sin(2.0 * System.Math.PI * rand2);
             normrand[1] = normrand[1] * sigma + mu;
             return normrand;
         }

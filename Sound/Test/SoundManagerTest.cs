@@ -6,41 +6,35 @@ using MUnityLibrary.Sound;
 
 public class SoundManagerTest : MonoBehaviour
 {
-    [SerializeField]
-    private Button SEButton;
+    [SerializeField] private Button _seButton;
 
-    [SerializeField]
-    private Button BGM1Button;
+    [SerializeField] private Button _bgm1Button;
 
-    [SerializeField]
-    private Button BGM2Button;
+    [SerializeField] private Button _bgm2Button;
 
-    [SerializeField]
-    private AudioClip _se;
+    [SerializeField] private AudioClip _se;
 
-    [SerializeField]
-    private AudioClip _bgm1;
+    [SerializeField] private AudioClip _bgm1;
 
-    [SerializeField]
-    private AudioClip _bgm2;
+    [SerializeField] private AudioClip _bgm2;
 
     private void Start()
     {
-        SEButton.onClick.AddListener(PlaySE);
+        _seButton.onClick.AddListener(PlaySe);
     }
 
-    private void PlaySE()
+    private void PlaySe()
     {
-        SoundManager.Instance.PlayOneShotSE(_se);
+        SoundManager.Instance.PlayOneShotSe(_se);
     }
 
-    private void PlayBGM1()
+    private void PlayBgm1()
     {
-        SoundManager.Instance.PlayBGM(_bgm1);
+        SoundManager.Instance.PlayBgm(_bgm1);
     }
 
-    private void PlayBGM2()
+    private void PlayBgm2()
     {
-        SoundManager.Instance.PlayBGM(_bgm2);
+        SoundManager.Instance.PlayBgm(_bgm2);
     }
 }

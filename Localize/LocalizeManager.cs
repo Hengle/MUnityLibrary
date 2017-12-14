@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace MUnityLibrary.Common
 {
+    /// <inheritdoc />
     /// <summary>
     /// ローカライズ管理
     /// </summary>
@@ -18,7 +19,7 @@ namespace MUnityLibrary.Common
         /// </summary>
         private string _localizeTextContent;
 
-        public Dictionary<string,string> Text;
+        public Dictionary<string, string> Text;
 
         /// <summary>
         /// 初期化
@@ -32,17 +33,17 @@ namespace MUnityLibrary.Common
         /// ローカライズファイルの取得
         /// </summary>
         /// <returns>The localization file.</returns>
-        private TextAsset GetLocalizationFile()
+        private static TextAsset GetLocalizationFile()
         {
-            TextAsset localizationFile = (TextAsset)Resources.Load(LocalizationPath + "Localization");
+            TextAsset localizationFile = (TextAsset) Resources.Load(LocalizationPath + "Localization");
 
-            if (localizationFile == null)
+            if (localizationFile != null)
             {
-                Debug.LogError(LocalizationPath + "には Localization ファイルが存在しません.");
-                return null;
+                return localizationFile;
             }
-
-            return localizationFile;
+            
+            Debug.LogError(LocalizationPath + "には Localization ファイルが存在しません.");
+            return null;
         }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace MUnityLibrary.Common
 {
+    /// <inheritdoc />
     /// <summary>
     /// MonoBehaviour の Singleton クラス
     /// </summary>
@@ -14,35 +15,19 @@ namespace MUnityLibrary.Common
 
         private void Awake()
         {
-            if (_instance != null)
+            if (_instance == null)
             {
-                // なんか Unity がおかしい気がするが、とりあえず対処
-                // DestroyImmediate (this.gameObject);
-                return;
+                _instance = GetComponent<T>();
             }
-            _instance = GetComponent<T>();
             //DontDestroyOnLoad(gameObject);
         }
 
         public void SetDontDestroyOnLoad(bool isActive)
         {
-            if (isActive)
-            {
-                DontDestroyOnLoad(gameObject);
-            };
+            if (!isActive) return;
+            DontDestroyOnLoad(gameObject);
         }
 
-        public static T Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = (T)FindObjectOfType(typeof(T));
-                }
-
-                return _instance;
-            }
-        }
+        public static T Instance => _instance ?? (_instance = (T) FindObjectOfType(typeof(T)));
     }
 }

@@ -7,23 +7,17 @@ namespace MUnityLibrary.Sound
 {
     public class BGMManagerTest : MonoBehaviour
     {
-        [SerializeField]
-        private Button _seButton;
+        [SerializeField] private Button _seButton;
 
-        [SerializeField]
-        private Button _bgm1Button;
+        [SerializeField] private Button _bgm1Button;
 
-        [SerializeField]
-        private Button _bgm2Button;
+        [SerializeField] private Button _bgm2Button;
 
-        [SerializeField]
-        private AudioClip _se;
+        [SerializeField] private AudioClip _se;
 
-        [SerializeField]
-        private AudioClip _bgm1;
+        [SerializeField] private AudioClip _bgm1;
 
-        [SerializeField]
-        private AudioClip _bgm2;
+        [SerializeField] private AudioClip _bgm2;
 
         private void Start()
         {
@@ -33,12 +27,12 @@ namespace MUnityLibrary.Sound
 
         private void PlayBGM1()
         {
-            SoundManager.Instance.PlayBGM(_bgm1);
+            SoundManager.Instance.PlayBgm(_bgm1);
         }
 
         private void PlayBGM2()
         {
-            SoundManager.Instance.PlayBGM(_bgm2);
+            SoundManager.Instance.PlayBgm(_bgm2);
         }
     }
 }
