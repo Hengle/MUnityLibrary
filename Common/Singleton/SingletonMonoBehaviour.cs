@@ -2,15 +2,10 @@
 
 namespace MUnityLibrary.Common
 {
-    /// <inheritdoc />
-    /// <summary>
-    /// MonoBehaviour の Singleton クラス
-    /// </summary>
-    public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+    public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
-        /// <summary>
-        /// インスタンス
-        /// </summary>
+        public static T Instance => _instance ?? (_instance = (T) FindObjectOfType(typeof(T)));
+
         private static T _instance;
 
         private void Awake()
@@ -19,15 +14,21 @@ namespace MUnityLibrary.Common
             {
                 _instance = GetComponent<T>();
             }
-            //DontDestroyOnLoad(gameObject);
         }
 
-        public void SetDontDestroyOnLoad(bool isActive)
+        public virtual void Initialize(bool hasDontDestroyOnLoad)
         {
-            if (!isActive) return;
+            SetDontDestroyOnLoad(hasDontDestroyOnLoad);
+        }
+
+        private void SetDontDestroyOnLoad(bool hasDontDestroyOnLoad)
+        {
+            if (!hasDontDestroyOnLoad)
+            {
+                return;
+            }
+
             DontDestroyOnLoad(gameObject);
         }
-
-        public static T Instance => _instance ?? (_instance = (T) FindObjectOfType(typeof(T)));
     }
 }
