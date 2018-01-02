@@ -8,22 +8,24 @@ namespace MUnityLibrary.Common
 
         private static T _instance;
 
+        protected virtual bool HasDontDestroyOnLoad => false;
+
         private void Awake()
         {
-            if (_instance == null)
+            if (_instance != null)
             {
-                _instance = GetComponent<T>();
+                return;
             }
+            _instance = GetComponent<T>();
+            SetDontDestroyOnLoad();
+            Initialize();
         }
 
-        public virtual void Initialize(bool hasDontDestroyOnLoad)
-        {
-            SetDontDestroyOnLoad(hasDontDestroyOnLoad);
-        }
+        protected abstract void Initialize();
 
-        private void SetDontDestroyOnLoad(bool hasDontDestroyOnLoad)
+        private void SetDontDestroyOnLoad()
         {
-            if (!hasDontDestroyOnLoad)
+            if (!HasDontDestroyOnLoad)
             {
                 return;
             }
