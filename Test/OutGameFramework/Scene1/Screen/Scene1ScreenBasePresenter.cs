@@ -1,13 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using MUnityLibrary.OutGame;
 using UnityEngine;
 
 namespace MUnityLibrary.OutGame.Test
 {
-    public class Screen1Presenter : ScreenPresenterBase
+    public class Scene1ScreenBasePresenter : ScreenPresenterBase
     {
-        [SerializeField] private Screen1View _view;
+        [SerializeField] private Scene1ScreenBaseView _view;
 
         public override void Initialize()
         {
@@ -16,8 +14,7 @@ namespace MUnityLibrary.OutGame.Test
 
         public override IEnumerator OnBeforeOpenScreenEnumerator()
         {
-            yield return new WaitForSeconds(2.0f);
-            Debug.LogError("BeforeOpenScreen1");
+            yield break;
         }
     }
 }

@@ -23,12 +23,12 @@ namespace MUnityLibrary.OutGame
             yield break;
         }
 
-        public IEnumerator OnBeforeCloseScreenEnumerator()
+        public virtual IEnumerator OnBeforeCloseScreenEnumerator()
         {
             yield break;
         }
 
-        public IEnumerator OnCloseScreenEnumerator()
+        public virtual IEnumerator OnCloseScreenEnumerator()
         {
             yield break;
         }
