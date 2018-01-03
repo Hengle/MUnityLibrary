@@ -24,6 +24,12 @@ namespace MUnityLibrary.Sound
         /// </summary>
         public float PlayBgmCurrentTimePosition => _bgmAudioSource.time;
 
+        protected override bool HasDontDestroyOnLoad => true;
+
+        protected override void Initialize()
+        {
+        }
+
         #region BGM
 
         /// <summary>

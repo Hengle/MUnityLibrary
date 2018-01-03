@@ -20,6 +20,11 @@ public class SoundManagerTest : MonoBehaviour
 
     private void Start()
     {
+        SetEvent();
+    }
+
+    private void SetEvent()
+    {
         _seButton.onClick.AddListener(PlaySe);
     }
 
