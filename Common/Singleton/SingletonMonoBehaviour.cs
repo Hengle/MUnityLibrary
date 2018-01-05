@@ -16,12 +16,15 @@ namespace MUnityLibrary.Common
             {
                 return;
             }
+
             _instance = GetComponent<T>();
             SetDontDestroyOnLoad();
             Initialize();
         }
 
-        protected abstract void Initialize();
+        protected virtual void Initialize()
+        {
+        }
 
         private void SetDontDestroyOnLoad()
         {
