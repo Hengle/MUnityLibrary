@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Configuration;
+using MUnityLibrary.OutGameFramework.HeaderAndFooter.Sandbox;
 using UnityEngine;
 
 namespace MUnityLibrary.OutGameFramework.Sandbox
@@ -29,6 +30,26 @@ namespace MUnityLibrary.OutGameFramework.Sandbox
 
             _view.Window2ButtonClickedEvent.AddListener(() =>
                 OpenWindow(Scene1WindowType.Window2, Scene1ScreenType.Screen1));
+
+            _view.FooterShowButtonClickedEvent.AddListener(() =>
+            {
+                StartCoroutine(FooterManagerPresenter.Instance.ShowEnumerator());
+            });
+
+            _view.FooterHideButtonClickedEvent.AddListener(() =>
+            {
+                StartCoroutine(FooterManagerPresenter.Instance.HideEnumerator());
+            });
+
+            _view.HeaderShowButtonClickedEvent.AddListener(() =>
+            {
+                StartCoroutine(HeaderManagerPresenter.Instance.ShowEnumerator());
+            });
+
+            _view.HeaderHideButtonClickedEvent.AddListener(() =>
+            {
+                StartCoroutine(HeaderManagerPresenter.Instance.HideEnumerator());
+            });
         }
 
         private static void OpenWindow(Scene1WindowType windowType, Scene1ScreenType screenType)

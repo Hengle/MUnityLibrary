@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using DG.Tweening;
 using MUnityLibrary.Common;
 using MUnityLibrary.Utility;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace MUnityLibrary.OutGameFramework
 
         protected override void Initialize()
         {
+            DOTween.Init();
             _model = new SceneManagerModel();
             CurrentScene.Initialize();
         }
