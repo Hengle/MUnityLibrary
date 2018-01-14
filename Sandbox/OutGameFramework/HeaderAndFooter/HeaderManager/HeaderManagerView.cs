@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using DG.Tweening;
+// using DG.Tweening;
 using UnityEngine;
 
 namespace MUnityLibrary.OutGameFramework.HeaderAndFooter.Sandbox
@@ -10,15 +10,15 @@ namespace MUnityLibrary.OutGameFramework.HeaderAndFooter.Sandbox
 
         public override IEnumerator ShowEnumerator()
         {
-            var showTweener = _panelRectTransform.DOAnchorPosY(0, 0.5f, true);
-            DOTween.Sequence().Append(showTweener).Play().WaitForCompletion();
+            // var showTweener = _panelRectTransform.DOAnchorPosY(0, 0.5f, true);
+            // DOTween.Sequence().Append(showTweener).Play().WaitForCompletion();
             yield break;
         }
 
         public override IEnumerator HideEnumerator()
         {
-            var hideTweener = _panelRectTransform.DOAnchorPosY(200, 0.5f, true);
-            DOTween.Sequence().Append(hideTweener).Play().WaitForCompletion();
+            // var hideTweener = _panelRectTransform.DOAnchorPosY(200, 0.5f, true);
+            // DOTween.Sequence().Append(hideTweener).Play().WaitForCompletion();
             yield break;
         }
     }
