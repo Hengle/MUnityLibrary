@@ -18,7 +18,11 @@ namespace MUnityLibrary.Editor.Script
         private static void CreateScriptAsset(string domainName, string filePath, string templeteDirectoryPath)
         {
             string baseClassName = Path.GetFileNameWithoutExtension(filePath);
-            baseClassName = baseClassName?.Replace(" ", "");
+
+            if (string.IsNullOrEmpty(baseClassName))
+            {
+                baseClassName = baseClassName.Replace(" ", "");
+            }
 
             string templeteRawText = Resources.Load(templeteDirectoryPath + domainName + ".cs").ToString();
             string replacedText = templeteRawText.Replace("#SCRIPTNAME#", baseClassName);

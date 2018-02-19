@@ -4,7 +4,10 @@ namespace MUnityLibrary.OutGameFramework
 {
     public class SceneManagerModel
     {
-        public string CurrentSceneName => SceneManager.GetActiveScene().name;
+        public string CurrentSceneName
+        {
+            get { return SceneManager.GetActiveScene().name; }
+        }
 
         public string CurrentWindowPath { get; private set; }
 

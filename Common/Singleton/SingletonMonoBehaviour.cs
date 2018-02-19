@@ -4,11 +4,12 @@ namespace MUnityLibrary.Common
 {
     public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
-        public static T Instance => _instance ?? (_instance = (T) FindObjectOfType(typeof(T)));
+        public static T Instance
+        {
+            get { return _instance ?? (_instance = (T) FindObjectOfType(typeof(T))); }
+        }
 
         private static T _instance;
-
-        protected virtual bool HasDontDestroyOnLoad => false;
 
         private void Awake()
         {
@@ -18,22 +19,8 @@ namespace MUnityLibrary.Common
             }
 
             _instance = GetComponent<T>();
-            SetDontDestroyOnLoad();
-            Initialize();
         }
 
-        protected virtual void Initialize()
-        {
-        }
-
-        private void SetDontDestroyOnLoad()
-        {
-            if (!HasDontDestroyOnLoad)
-            {
-                return;
-            }
-
-            DontDestroyOnLoad(gameObject);
-        }
+        protected abstract void Initialize();
     }
 }

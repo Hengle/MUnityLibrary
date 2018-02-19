@@ -13,7 +13,10 @@ namespace MUnityLibrary.Utility
         /// <param name="action">Action</param>
         public static void Exec(this Action action)
         {
-            action?.Invoke();
+            if (action != null)
+            {
+                action.Invoke();
+            }
         }
 
         /// <summary>
@@ -24,7 +27,10 @@ namespace MUnityLibrary.Utility
         /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Exec<T>(this Action<T> action, T param)
         {
-            action?.Invoke(param);
+            if (action != null)
+            {
+                action.Invoke(param);
+            }
         }
     }
 }

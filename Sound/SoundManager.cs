@@ -22,12 +22,14 @@ namespace MUnityLibrary.Sound
         /// <summary>
         /// 現在再生している BGM の再生位置
         /// </summary>
-        public float PlayBgmCurrentTimePosition => _bgmAudioSource.time;
-
-        protected override bool HasDontDestroyOnLoad => true;
+        public float PlayBgmCurrentTimePosition
+        {
+            get { return _bgmAudioSource.time; }
+        }
 
         protected override void Initialize()
         {
+            DontDestroyOnLoad(gameObject);
         }
 
         #region BGM

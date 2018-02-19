@@ -10,6 +10,9 @@
         /// </summary>
         private static Singleton _instance;
 
-        public static Singleton Instance => _instance ?? (_instance = new Singleton());
+        public static Singleton Instance
+        {
+            get { return _instance ?? (_instance = new Singleton()); }
+        }
     }
 }

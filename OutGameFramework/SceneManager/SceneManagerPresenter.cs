@@ -16,13 +16,15 @@ namespace MUnityLibrary.OutGameFramework
 
         public event Action<object> EndLoadSceneAction;
 
-        private static ScenePresenterBase CurrentScene => GetCurrentScene();
-
-        protected override bool HasDontDestroyOnLoad => true;
+        private static ScenePresenterBase CurrentScene
+        {
+            get { return GetCurrentScene(); }
+        }
 
         protected override void Initialize()
         {
             // DOTween.Init();
+            DontDestroyOnLoad(gameObject);
             _model = new SceneManagerModel();
             CurrentScene.Initialize();
         }

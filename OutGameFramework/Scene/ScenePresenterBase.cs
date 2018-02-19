@@ -14,10 +14,16 @@ namespace MUnityLibrary.OutGameFramework
 
         public event Action EndLoadWindowAction;
 
-        public string CurrentOpenSceneName => Model.SceneName;
+        public string CurrentOpenSceneName
+        {
+            get { return Model.SceneName; }
+        }
 
-        public string CurrentOpenWindowPath =>
-            _currentOpenWindow != null ? _currentOpenWindow.CurrentOpenWindowPath : "";
+        public string CurrentOpenWindowPath
+        {
+            get { return _currentOpenWindow != null ? _currentOpenWindow.CurrentOpenWindowPath : ""; }
+        }
+
 
         private WindowPresenterBase _currentOpenWindow;
 

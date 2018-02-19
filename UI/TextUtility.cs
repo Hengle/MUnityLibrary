@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace MUnityLibrary.UI
 {
@@ -12,7 +13,7 @@ namespace MUnityLibrary.UI
         /// <returns></returns>
         public static string PaintedColor(this string text, Color color)
         {
-            return $"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>{text}</color>";
+            return string.Format("<color=#{0}>{1}</color>", ColorUtility.ToHtmlStringRGBA(color), text);
         }
     }
 }

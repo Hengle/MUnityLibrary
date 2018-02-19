@@ -4,10 +4,9 @@ namespace MUnityLibrary.OutGameFramework
 {
     public class SceneLoader : SingletonMonoBehaviour<SceneLoader>
     {
-        protected override bool HasDontDestroyOnLoad => true;
-
         protected override void Initialize()
         {
+            DontDestroyOnLoad(gameObject);
         }
 
         public void LoadScene(string sceneName, string windowPath, string screenPath, object param = null)

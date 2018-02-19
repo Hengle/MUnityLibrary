@@ -2,6 +2,7 @@
 using System.Collections;
 using MUnityLibrary.Utility;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MUnityLibrary.OutGameFramework
 {
@@ -19,10 +20,15 @@ namespace MUnityLibrary.OutGameFramework
 
         protected WindowModelBase Model;
 
-        public string CurrentOpenWindowPath => Model.WindowName;
+        public string CurrentOpenWindowPath
+        {
+            get { return Model.WindowName; }
+        }
 
-        private string CurrentScreenPath =>
-            CurrentOpenScreenPresenter != null ? CurrentOpenScreenPresenter.ScreenName : "";
+        private string CurrentScreenPath
+        {
+            get { return CurrentOpenScreenPresenter != null ? CurrentOpenScreenPresenter.ScreenName : ""; }
+        }
 
         public virtual void Initialize()
         {

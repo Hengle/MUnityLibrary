@@ -7,7 +7,10 @@ namespace MUnityLibrary.OutGameFramework
     {
         private readonly ScreenModelBase _model = new ScreenModelBase();
 
-        public string ScreenName => _model.ScreenName;
+        public string ScreenName
+        {
+            get { return _model.ScreenName; }
+        }
 
         public virtual void Initialize()
         {
